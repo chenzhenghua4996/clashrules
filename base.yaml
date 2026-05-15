@@ -1,0 +1,276 @@
+secret: github.com/Alvin9999-newpac/fanqiang
+mixed-port: 7890
+allow-lan: false
+log-level: info
+dns:
+  enabled: true
+  nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  fallback-filter:
+    geoip: false
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+proxies:
+  - name: github.com/Alvin9999-newpac/fanqiang                     
+    type: hysteria
+    server: 163.172.117.163
+    port: 36699
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: "11 Mbps"
+    down: "55 Mbps"
+proxy-groups:
+  - name: ?? 节点选择
+    type: select
+    proxies:
+      - ?? 自动选择
+      - DIRECT
+      - github.com/Alvin9999-newpac/fanqiang
+  - name: ?? 自动选择
+    type: fallback              
+    url: "https://www.gstatic.com/generate_204"
+    interval: 5
+    proxies:
+      - github.com/Alvin9999-newpac/fanqiang
+  - name: ?? 国外媒体
+    type: select
+    proxies:
+      - ?? 节点选择
+      - ?? 自动选择
+      - ?? 全部直连
+      - github.com/Alvin9999-newpac/fanqiang
+  - name: ?? 港台媒体
+    type: select
+    proxies:
+      - ?? 节点选择
+      - ?? 全部直连
+      - github.com/Alvin9999-newpac/fanqiang
+  - name: ?? 微信服务
+    type: select
+    proxies:
+      - ?? 全部直连
+      - ?? 节点选择
+      - github.com/Alvin9999-newpac/fanqiang
+  - name: ?? 苹果服务
+    type: select
+    proxies:
+      - ?? 节点选择
+      - ?? 全部直连
+      - github.com/Alvin9999-newpac/fanqiang
+  - name: ?? 全部直连
+    type: select
+    proxies:
+      - DIRECT
+      - ?? 节点选择
+      - ?? 自动选择
+  - name: ?? 全部拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: ?? 应用商店
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: ?? ©️之后
+    type: select
+    proxies:
+      - ?? 节点选择
+      - ?? 全部直连
+      - ?? 自动选择
+      - github.com/Alvin9999-newpac/fanqiang
+rules:
+  # === 私有网络/本地 直连 ===
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - IP-CIDR,fd00::/8,DIRECT,no-resolve
+
+  # === 爬虫数据源 直连（重要！）===
+  # 九方智投
+  - DOMAIN-SUFFIX,9fzt.com,DIRECT
+  # 查股网/同花顺
+  - DOMAIN-SUFFIX,10jqka.com.cn,DIRECT
+  - DOMAIN-SUFFIX,ths123.com,DIRECT
+  - DOMAIN-SUFFIX,tonghuashun.com,DIRECT
+  - DOMAIN-SUFFIX,iwencai.com,DIRECT
+  # 雪球
+  - DOMAIN-SUFFIX,xueqiu.com,DIRECT
+  # 富途
+  - DOMAIN-SUFFIX,futunn.com,DIRECT
+  - DOMAIN-SUFFIX,futuhk.com,DIRECT
+  # moomoo 走代理
+  - DOMAIN-SUFFIX,moomoo.com,?? 节点选择
+  # 东方财富
+  - DOMAIN-SUFFIX,eastmoney.com,DIRECT
+  # 新浪财经
+  - DOMAIN-SUFFIX,sina.com.cn,DIRECT
+  - DOMAIN-SUFFIX,sina.cn,DIRECT
+  # 搜狐财经
+  - DOMAIN-SUFFIX,sohu.com,DIRECT
+  # lude.site
+  - DOMAIN-SUFFIX,lude.site,DIRECT
+  # 其他数据源
+  - DOMAIN-SUFFIX,gubit.cn,DIRECT
+  - DOMAIN-SUFFIX,yundzh.com,DIRECT
+  - DOMAIN-SUFFIX,csindex.com.cn,DIRECT
+  - DOMAIN-SUFFIX,hkexnews.hk,DIRECT
+  - DOMAIN-SUFFIX,cls.cn,DIRECT
+  - DOMAIN-SUFFIX,chongnengjihua.com,DIRECT
+  - DOMAIN-SUFFIX,gw.com.cn,DIRECT
+  - DOMAIN-SUFFIX,danjuanapp.com,DIRECT
+  - DOMAIN-SUFFIX,akshare.xyz,DIRECT
+  - DOMAIN-SUFFIX,pushplus.plus,DIRECT
+  - DOMAIN-SUFFIX,bigmodel.cn,DIRECT
+  # 国内AI
+  - DOMAIN-SUFFIX,zhipuai.cn,DIRECT
+  - DOMAIN-SUFFIX,chatglm.cn,DIRECT
+  - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - DOMAIN-SUFFIX,wenxin.baidu.com,DIRECT
+  - DOMAIN-SUFFIX,spark.iflytek.com,DIRECT
+  - DOMAIN-SUFFIX,iflytek.com,DIRECT
+  - DOMAIN-SUFFIX,doubao.com,DIRECT
+  - DOMAIN-SUFFIX,volcengine.com,DIRECT
+  - DOMAIN-SUFFIX,stepfun.com,DIRECT
+  - DOMAIN-SUFFIX,minimaxi.com,DIRECT
+  - DOMAIN-SUFFIX,api.minimax.chat,DIRECT
+  - DOMAIN-SUFFIX,moonshot.cn,DIRECT
+  - DOMAIN-SUFFIX,kimi.moonshot.cn,DIRECT
+  - DOMAIN-SUFFIX,qwenlm.ai,DIRECT
+  - DOMAIN-SUFFIX,tongyi.aliyun.com,DIRECT
+  - DOMAIN-SUFFIX,deepseek.com,DIRECT
+  # 通达信
+  - DOMAIN-SUFFIX,tdx.com.cn,DIRECT
+  - DOMAIN-SUFFIX,通达信.com,DIRECT
+
+  # === 交易所/监管 直连 ===
+  - DOMAIN-SUFFIX,sse.com.cn,DIRECT
+  - DOMAIN-SUFFIX,szse.cn,DIRECT
+  - DOMAIN-SUFFIX,cninfo.com.cn,DIRECT
+  - DOMAIN-SUFFIX,csrc.gov.cn,DIRECT
+
+  # === 国内域名 直连 ===
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-SUFFIX,com.cn,DIRECT
+  - DOMAIN-SUFFIX,net.cn,DIRECT
+  - DOMAIN-SUFFIX,org.cn,DIRECT
+  - DOMAIN-SUFFIX,gov.cn,DIRECT
+  - DOMAIN-SUFFIX,edu.cn,DIRECT
+  - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,tmall.com,DIRECT
+  - DOMAIN-SUFFIX,alipay.com,DIRECT
+  - DOMAIN-SUFFIX,alibaba.com,DIRECT
+  - DOMAIN-SUFFIX,1688.com,DIRECT
+  - DOMAIN-SUFFIX,jd.com,DIRECT
+  - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - DOMAIN-SUFFIX,bdimg.com,DIRECT
+  - DOMAIN-SUFFIX,bilibili.com,DIRECT
+  - DOMAIN-SUFFIX,hdslb.com,DIRECT
+  - DOMAIN-SUFFIX,douyin.com,DIRECT
+  - DOMAIN-SUFFIX,toutiao.com,DIRECT
+  - DOMAIN-SUFFIX,bytedance.com,DIRECT
+  - DOMAIN-SUFFIX,feishu.cn,DIRECT
+  - DOMAIN-SUFFIX,larksuite.com,DIRECT
+  - DOMAIN-SUFFIX,bytedance.net,DIRECT
+  - DOMAIN-SUFFIX,zhipin.com,DIRECT
+  - DOMAIN-SUFFIX,csdn.net,DIRECT
+  - DOMAIN-SUFFIX,jianshu.com,DIRECT
+  - DOMAIN-SUFFIX,zhihu.com,DIRECT
+  - DOMAIN-SUFFIX,zhihuishu.com,DIRECT
+  - DOMAIN-SUFFIX,douban.com,DIRECT
+  - DOMAIN-SUFFIX,163.com,DIRECT
+  - DOMAIN-SUFFIX,126.com,DIRECT
+  - DOMAIN-SUFFIX,127.net,DIRECT
+  - DOMAIN-SUFFIX,netease.com,DIRECT
+  - DOMAIN-SUFFIX,ifeng.com,DIRECT
+  - DOMAIN-SUFFIX,aliyuncs.com,DIRECT
+  - DOMAIN-SUFFIX,aliyun.com,DIRECT
+  - DOMAIN-SUFFIX,tencentcloudapi.com,DIRECT
+  - DOMAIN-SUFFIX,myqcloud.com,DIRECT
+  - DOMAIN-SUFFIX,qcloud.com,DIRECT
+  - DOMAIN-SUFFIX,dnspod.net,DIRECT
+  - DOMAIN-SUFFIX,meituan.com,DIRECT
+  - DOMAIN-SUFFIX,dianping.com,DIRECT
+  - DOMAIN-SUFFIX,ele.me,DIRECT
+  - DOMAIN-SUFFIX,mogujie.com,DIRECT
+  - DOMAIN-SUFFIX,pinduoduo.com,DIRECT
+  - DOMAIN-SUFFIX,yangkeduo.com,DIRECT
+  - DOMAIN-SUFFIX,xiaomi.com,DIRECT
+  - DOMAIN-SUFFIX,mi.com,DIRECT
+  - DOMAIN-SUFFIX,huawei.com,DIRECT
+  - DOMAIN-SUFFIX,vmall.com,DIRECT
+  - DOMAIN-SUFFIX,oppo.com,DIRECT
+  - DOMAIN-SUFFIX,vivo.com.cn,DIRECT
+  - DOMAIN-SUFFIX,meizu.com,DIRECT
+  - DOMAIN-SUFFIX,12306.cn,DIRECT
+  - DOMAIN-SUFFIX,icbc.com.cn,DIRECT
+  - DOMAIN-SUFFIX,ccb.com,DIRECT
+  - DOMAIN-SUFFIX,boc.cn,DIRECT
+  - DOMAIN-SUFFIX,abchina.com,DIRECT
+  - DOMAIN-SUFFIX,psbc.com,DIRECT
+  - DOMAIN-SUFFIX,cmbchina.com,DIRECT
+  - DOMAIN-SUFFIX,spdb.com.cn,DIRECT
+  - DOMAIN-SUFFIX,hsbc.com.cn,DIRECT
+  - DOMAIN-SUFFIX,unionpay.com,DIRECT
+  - DOMAIN-SUFFIX,95516.com,DIRECT
+  - DOMAIN-SUFFIX,ctrip.com,DIRECT
+  - DOMAIN-SUFFIX,ly.com,DIRECT
+  - DOMAIN-SUFFIX,qunar.com,DIRECT
+  - DOMAIN-SUFFIX,didi.cn,DIRECT
+  - DOMAIN-SUFFIX,xiaojukeji.com,DIRECT
+
+  # === GeoIP 中国IP直连 ===
+  - GEOIP,CN,DIRECT
+
+  # === 境外网站 走代理 ===
+  - DOMAIN-SUFFIX,google.com,?? 节点选择
+  - DOMAIN-SUFFIX,google.co.jp,?? 节点选择
+  - DOMAIN-SUFFIX,googleapis.com,?? 节点选择
+  - DOMAIN-SUFFIX,gstatic.com,?? 节点选择
+  - DOMAIN-SUFFIX,youtube.com,?? 节点选择
+  - DOMAIN-SUFFIX,ytimg.com,?? 节点选择
+  - DOMAIN-SUFFIX,googlevideo.com,?? 节点选择
+  - DOMAIN-SUFFIX,github.com,?? 节点选择
+  - DOMAIN-SUFFIX,githubusercontent.com,?? 节点选择
+  - DOMAIN-SUFFIX,githubassets.com,?? 节点选择
+  - DOMAIN-SUFFIX,twitter.com,?? 节点选择
+  - DOMAIN-SUFFIX,x.com,?? 节点选择
+  - DOMAIN-SUFFIX,twimg.com,?? 节点选择
+  - DOMAIN-SUFFIX,t.co,?? 节点选择
+  - DOMAIN-SUFFIX,facebook.com,?? 节点选择
+  - DOMAIN-SUFFIX,instagram.com,?? 节点选择
+  - DOMAIN-SUFFIX,whatsapp.com,?? 节点选择
+  - DOMAIN-SUFFIX,telegram.org,?? 节点选择
+  - DOMAIN-SUFFIX,t.me,?? 节点选择
+  - DOMAIN-SUFFIX,openai.com,?? 节点选择
+  - DOMAIN-SUFFIX,chatgpt.com,?? 节点选择
+  - DOMAIN-SUFFIX,claude.ai,?? 节点选择
+  - DOMAIN-SUFFIX,anthropic.com,?? 节点选择
+  - DOMAIN-SUFFIX,wikipedia.org,?? 节点选择
+  - DOMAIN-SUFFIX,reddit.com,?? 节点选择
+  - DOMAIN-SUFFIX,discord.com,?? 节点选择
+  - DOMAIN-SUFFIX,discordapp.com,?? 节点选择
+  - DOMAIN-SUFFIX,discordapp.net,?? 节点选择
+  - DOMAIN-SUFFIX,stackoverflow.com,?? 节点选择
+  - DOMAIN-SUFFIX,notion.so,?? 节点选择
+  - DOMAIN-SUFFIX,notion.site,?? 节点选择
+  - DOMAIN-SUFFIX,vercel.app,?? 节点选择
+  - DOMAIN-SUFFIX,netlify.app,?? 节点选择
+  - DOMAIN-SUFFIX,cloudflare.com,?? 节点选择
+  - DOMAIN-SUFFIX,amazonaws.com,?? 节点选择
+  - DOMAIN-SUFFIX,openclaw.ai,?? 节点选择
+
+  # === 兜底：其余走节点选择 ===
+  - MATCH,?? 节点选择
