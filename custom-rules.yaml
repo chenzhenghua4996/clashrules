@@ -1,0 +1,133 @@
+# Clash 订阅合并 - 自定义分流规则
+# 这些规则会被合并到原始订阅配置中
+# 优先级：从上到下，先匹配先生效
+
+rules:
+  # === 私有网络/本地 直连 ===
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - IP-CIDR,fd00::/8,DIRECT,no-resolve
+
+  # === 爬虫数据源 直连 ===
+  - DOMAIN-SUFFIX,9fzt.com,DIRECT
+  - DOMAIN-SUFFIX,10jqka.com.cn,DIRECT
+  - DOMAIN-SUFFIX,ths123.com,DIRECT
+  - DOMAIN-SUFFIX,tonghuashun.com,DIRECT
+  - DOMAIN-SUFFIX,iwencai.com,DIRECT
+  - DOMAIN-SUFFIX,xueqiu.com,DIRECT
+  - DOMAIN-SUFFIX,futunn.com,DIRECT
+  - DOMAIN-SUFFIX,futuhk.com,DIRECT
+  - DOMAIN-SUFFIX,eastmoney.com,DIRECT
+  - DOMAIN-SUFFIX,sina.com.cn,DIRECT
+  - DOMAIN-SUFFIX,sina.cn,DIRECT
+  - DOMAIN-SUFFIX,sohu.com,DIRECT
+  - DOMAIN-SUFFIX,lude.site,DIRECT
+  - DOMAIN-SUFFIX,gubit.cn,DIRECT
+  - DOMAIN-SUFFIX,yundzh.com,DIRECT
+  - DOMAIN-SUFFIX,csindex.com.cn,DIRECT
+  - DOMAIN-SUFFIX,hkexnews.hk,DIRECT
+  - DOMAIN-SUFFIX,cls.cn,DIRECT
+  - DOMAIN-SUFFIX,chongnengjihua.com,DIRECT
+  - DOMAIN-SUFFIX,gw.com.cn,DIRECT
+  - DOMAIN-SUFFIX,danjuanapp.com,DIRECT
+  - DOMAIN-SUFFIX,akshare.xyz,DIRECT
+  - DOMAIN-SUFFIX,pushplus.plus,DIRECT
+
+  # === 国内AI 直连 ===
+  - DOMAIN-SUFFIX,bigmodel.cn,DIRECT
+  - DOMAIN-SUFFIX,zhipuai.cn,DIRECT
+  - DOMAIN-SUFFIX,chatglm.cn,DIRECT
+  - DOMAIN-SUFFIX,wenxin.baidu.com,DIRECT
+  - DOMAIN-SUFFIX,spark.iflytek.com,DIRECT
+  - DOMAIN-SUFFIX,iflytek.com,DIRECT
+  - DOMAIN-SUFFIX,doubao.com,DIRECT
+  - DOMAIN-SUFFIX,volcengine.com,DIRECT
+  - DOMAIN-SUFFIX,stepfun.com,DIRECT
+  - DOMAIN-SUFFIX,minimaxi.com,DIRECT
+  - DOMAIN-SUFFIX,moonshot.cn,DIRECT
+  - DOMAIN-SUFFIX,qwenlm.ai,DIRECT
+  - DOMAIN-SUFFIX,tongyi.aliyun.com,DIRECT
+  - DOMAIN-SUFFIX,deepseek.com,DIRECT
+
+  # === 通达信 直连 ===
+  - DOMAIN-SUFFIX,tdx.com.cn,DIRECT
+
+  # === 交易所/监管 直连 ===
+  - DOMAIN-SUFFIX,sse.com.cn,DIRECT
+  - DOMAIN-SUFFIX,szse.cn,DIRECT
+  - DOMAIN-SUFFIX,cninfo.com.cn,DIRECT
+  - DOMAIN-SUFFIX,csrc.gov.cn,DIRECT
+
+  # === 国内常用 直连 ===
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,tmall.com,DIRECT
+  - DOMAIN-SUFFIX,alipay.com,DIRECT
+  - DOMAIN-SUFFIX,alibaba.com,DIRECT
+  - DOMAIN-SUFFIX,jd.com,DIRECT
+  - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - DOMAIN-SUFFIX,bilibili.com,DIRECT
+  - DOMAIN-SUFFIX,hdslb.com,DIRECT
+  - DOMAIN-SUFFIX,douyin.com,DIRECT
+  - DOMAIN-SUFFIX,toutiao.com,DIRECT
+  - DOMAIN-SUFFIX,bytedance.com,DIRECT
+  - DOMAIN-SUFFIX,feishu.cn,DIRECT
+  - DOMAIN-SUFFIX,larksuite.com,DIRECT
+  - DOMAIN-SUFFIX,zhihu.com,DIRECT
+  - DOMAIN-SUFFIX,csdn.net,DIRECT
+  - DOMAIN-SUFFIX,163.com,DIRECT
+  - DOMAIN-SUFFIX,netease.com,DIRECT
+  - DOMAIN-SUFFIX,sina.com.cn,DIRECT
+  - DOMAIN-SUFFIX,weibo.com,DIRECT
+  - DOMAIN-SUFFIX,sohu.com,DIRECT
+  - DOMAIN-SUFFIX,aliyun.com,DIRECT
+  - DOMAIN-SUFFIX,aliyuncs.com,DIRECT
+  - DOMAIN-SUFFIX,qcloud.com,DIRECT
+  - DOMAIN-SUFFIX,meituan.com,DIRECT
+  - DOMAIN-SUFFIX,ctrip.com,DIRECT
+  - DOMAIN-SUFFIX,12306.cn,DIRECT
+  - DOMAIN-SUFFIX,unionpay.com,DIRECT
+
+  # === GeoIP 中国IP直连 ===
+  - GEOIP,CN,DIRECT
+
+  # === moomoo 走代理 ===
+  - DOMAIN-SUFFIX,moomoo.com,PROXY
+
+  # === 境外网站 走代理 ===
+  - DOMAIN-SUFFIX,google.com,PROXY
+  - DOMAIN-SUFFIX,googleapis.com,PROXY
+  - DOMAIN-SUFFIX,gstatic.com,PROXY
+  - DOMAIN-SUFFIX,youtube.com,PROXY
+  - DOMAIN-SUFFIX,ytimg.com,PROXY
+  - DOMAIN-SUFFIX,googlevideo.com,PROXY
+  - DOMAIN-SUFFIX,github.com,PROXY
+  - DOMAIN-SUFFIX,githubusercontent.com,PROXY
+  - DOMAIN-SUFFIX,githubassets.com,PROXY
+  - DOMAIN-SUFFIX,twitter.com,PROXY
+  - DOMAIN-SUFFIX,x.com,PROXY
+  - DOMAIN-SUFFIX,twimg.com,PROXY
+  - DOMAIN-SUFFIX,t.co,PROXY
+  - DOMAIN-SUFFIX,facebook.com,PROXY
+  - DOMAIN-SUFFIX,instagram.com,PROXY
+  - DOMAIN-SUFFIX,whatsapp.com,PROXY
+  - DOMAIN-SUFFIX,telegram.org,PROXY
+  - DOMAIN-SUFFIX,t.me,PROXY
+  - DOMAIN-SUFFIX,openai.com,PROXY
+  - DOMAIN-SUFFIX,chatgpt.com,PROXY
+  - DOMAIN-SUFFIX,claude.ai,PROXY
+  - DOMAIN-SUFFIX,anthropic.com,PROXY
+  - DOMAIN-SUFFIX,wikipedia.org,PROXY
+  - DOMAIN-SUFFIX,reddit.com,PROXY
+  - DOMAIN-SUFFIX,discord.com,PROXY
+  - DOMAIN-SUFFIX,discordapp.com,PROXY
+  - DOMAIN-SUFFIX,stackoverflow.com,PROXY
+  - DOMAIN-SUFFIX,notion.so,PROXY
+  - DOMAIN-SUFFIX,vercel.app,PROXY
+  - DOMAIN-SUFFIX,cloudflare.com,PROXY
+  - DOMAIN-SUFFIX,amazonaws.com,PROXY
+  - DOMAIN-SUFFIX,openclaw.ai,PROXY
