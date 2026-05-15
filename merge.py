@@ -11,7 +11,7 @@ import requests
 
 SUBSCRIPTION_URL = 'https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/2/config.yaml'
 RULES_FILE = 'custom-rules.yaml'
-OUTPUT_FILE = 'docs/clash.yaml'
+OUTPUT_FILE = 'docs/b6041168492a1af2.yaml'
 # 如果远程拉取失败，使用本地 base.yaml 兜底
 LOCAL_BASE = 'base.yaml'
 
