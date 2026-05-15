@@ -2,9 +2,8 @@ name: Update Clash Config
 
 on:
   schedule:
-    # 每6小时更新一次（UTC时间）
     - cron: '0 */6 * * *'
-  workflow_dispatch: # 手动触发
+  workflow_dispatch:
   push:
     paths:
       - 'custom-rules.yaml'
@@ -24,12 +23,14 @@ jobs:
         run: pip install pyyaml requests
       
       - name: Merge config
+        env:
+          OUTPUT_NAME: ${{ secrets.OUTPUT_NAME }}
         run: python merge.py
       
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/clash.yaml
-          git diff --staged --quiet || git commit -m "auto: update clash config $(date +%Y-%m-%d)"
+          git add docs/
+          git diff --staged --quiet || git commit -m "auto: update config $(date +%Y-%m-%d)"
           git push
