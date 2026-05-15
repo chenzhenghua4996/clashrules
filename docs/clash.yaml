@@ -26,65 +26,65 @@ proxies:
   up: 11 Mbps
   down: 55 Mbps
 proxy-groups:
-- name: ?? 节点选择
+- name: 🚀 节点选择
   type: select
   proxies:
-  - ?? 自动选择
+  - ♻️ 自动选择
   - DIRECT
   - github.com/Alvin9999-newpac/fanqiang
-- name: ?? 自动选择
+- name: ♻️ 自动选择
   type: fallback
   url: https://www.gstatic.com/generate_204
   interval: 5
   proxies:
   - github.com/Alvin9999-newpac/fanqiang
-- name: ?? 国外媒体
+- name: 🌍 国外媒体
   type: select
   proxies:
-  - ?? 节点选择
-  - ?? 自动选择
-  - ?? 全部直连
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🎯 全球直连
   - github.com/Alvin9999-newpac/fanqiang
-- name: ?? 港台媒体
+- name: 📲 电报信息
   type: select
   proxies:
-  - ?? 节点选择
-  - ?? 全部直连
+  - 🚀 节点选择
+  - 🎯 全球直连
   - github.com/Alvin9999-newpac/fanqiang
-- name: ?? 微信服务
+- name: Ⓜ️ 微软服务
   type: select
   proxies:
-  - ?? 全部直连
-  - ?? 节点选择
+  - 🎯 全球直连
+  - 🚀 节点选择
   - github.com/Alvin9999-newpac/fanqiang
-- name: ?? 苹果服务
+- name: 🍎 苹果服务
   type: select
   proxies:
-  - ?? 节点选择
-  - ?? 全部直连
+  - 🚀 节点选择
+  - 🎯 全球直连
   - github.com/Alvin9999-newpac/fanqiang
-- name: ?? 全部直连
+- name: 🎯 全球直连
   type: select
   proxies:
   - DIRECT
-  - ?? 节点选择
-  - ?? 自动选择
-- name: ?? 全部拦截
+  - 🚀 节点选择
+  - ♻️ 自动选择
+- name: 🛑 全球拦截
   type: select
   proxies:
   - REJECT
   - DIRECT
-- name: ?? 应用商店
+- name: 🍃 应用净化
   type: select
   proxies:
   - REJECT
   - DIRECT
-- name: ?? ©️之后
+- name: 🐟 漏网之鱼
   type: select
   proxies:
-  - ?? 节点选择
-  - ?? 全部直连
-  - ?? 自动选择
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - ♻️ 自动选择
   - github.com/Alvin9999-newpac/fanqiang
 rules:
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
@@ -165,36 +165,36 @@ rules:
 - DOMAIN-SUFFIX,12306.cn,DIRECT
 - DOMAIN-SUFFIX,unionpay.com,DIRECT
 - GEOIP,CN,DIRECT
-- DOMAIN-SUFFIX,moomoo.com,?? 节点选择
-- DOMAIN-SUFFIX,google.com,?? 节点选择
-- DOMAIN-SUFFIX,googleapis.com,?? 节点选择
-- DOMAIN-SUFFIX,gstatic.com,?? 节点选择
-- DOMAIN-SUFFIX,youtube.com,?? 节点选择
-- DOMAIN-SUFFIX,ytimg.com,?? 节点选择
-- DOMAIN-SUFFIX,googlevideo.com,?? 节点选择
-- DOMAIN-SUFFIX,github.com,?? 节点选择
-- DOMAIN-SUFFIX,githubusercontent.com,?? 节点选择
-- DOMAIN-SUFFIX,githubassets.com,?? 节点选择
-- DOMAIN-SUFFIX,twitter.com,?? 节点选择
-- DOMAIN-SUFFIX,x.com,?? 节点选择
-- DOMAIN-SUFFIX,twimg.com,?? 节点选择
-- DOMAIN-SUFFIX,t.co,?? 节点选择
-- DOMAIN-SUFFIX,facebook.com,?? 节点选择
-- DOMAIN-SUFFIX,instagram.com,?? 节点选择
-- DOMAIN-SUFFIX,whatsapp.com,?? 节点选择
-- DOMAIN-SUFFIX,telegram.org,?? 节点选择
-- DOMAIN-SUFFIX,t.me,?? 节点选择
-- DOMAIN-SUFFIX,openai.com,?? 节点选择
-- DOMAIN-SUFFIX,chatgpt.com,?? 节点选择
-- DOMAIN-SUFFIX,claude.ai,?? 节点选择
-- DOMAIN-SUFFIX,anthropic.com,?? 节点选择
-- DOMAIN-SUFFIX,wikipedia.org,?? 节点选择
-- DOMAIN-SUFFIX,reddit.com,?? 节点选择
-- DOMAIN-SUFFIX,discord.com,?? 节点选择
-- DOMAIN-SUFFIX,discordapp.com,?? 节点选择
-- DOMAIN-SUFFIX,stackoverflow.com,?? 节点选择
-- DOMAIN-SUFFIX,notion.so,?? 节点选择
-- DOMAIN-SUFFIX,vercel.app,?? 节点选择
-- DOMAIN-SUFFIX,cloudflare.com,?? 节点选择
-- DOMAIN-SUFFIX,amazonaws.com,?? 节点选择
-- DOMAIN-SUFFIX,openclaw.ai,?? 节点选择
+- DOMAIN-SUFFIX,moomoo.com,🚀 节点选择
+- DOMAIN-SUFFIX,google.com,🚀 节点选择
+- DOMAIN-SUFFIX,googleapis.com,🚀 节点选择
+- DOMAIN-SUFFIX,gstatic.com,🚀 节点选择
+- DOMAIN-SUFFIX,youtube.com,🚀 节点选择
+- DOMAIN-SUFFIX,ytimg.com,🚀 节点选择
+- DOMAIN-SUFFIX,googlevideo.com,🚀 节点选择
+- DOMAIN-SUFFIX,github.com,🚀 节点选择
+- DOMAIN-SUFFIX,githubusercontent.com,🚀 节点选择
+- DOMAIN-SUFFIX,githubassets.com,🚀 节点选择
+- DOMAIN-SUFFIX,twitter.com,🚀 节点选择
+- DOMAIN-SUFFIX,x.com,🚀 节点选择
+- DOMAIN-SUFFIX,twimg.com,🚀 节点选择
+- DOMAIN-SUFFIX,t.co,🚀 节点选择
+- DOMAIN-SUFFIX,facebook.com,🚀 节点选择
+- DOMAIN-SUFFIX,instagram.com,🚀 节点选择
+- DOMAIN-SUFFIX,whatsapp.com,🚀 节点选择
+- DOMAIN-SUFFIX,telegram.org,🚀 节点选择
+- DOMAIN-SUFFIX,t.me,🚀 节点选择
+- DOMAIN-SUFFIX,openai.com,🚀 节点选择
+- DOMAIN-SUFFIX,chatgpt.com,🚀 节点选择
+- DOMAIN-SUFFIX,claude.ai,🚀 节点选择
+- DOMAIN-SUFFIX,anthropic.com,🚀 节点选择
+- DOMAIN-SUFFIX,wikipedia.org,🚀 节点选择
+- DOMAIN-SUFFIX,reddit.com,🚀 节点选择
+- DOMAIN-SUFFIX,discord.com,🚀 节点选择
+- DOMAIN-SUFFIX,discordapp.com,🚀 节点选择
+- DOMAIN-SUFFIX,stackoverflow.com,🚀 节点选择
+- DOMAIN-SUFFIX,notion.so,🚀 节点选择
+- DOMAIN-SUFFIX,vercel.app,🚀 节点选择
+- DOMAIN-SUFFIX,cloudflare.com,🚀 节点选择
+- DOMAIN-SUFFIX,amazonaws.com,🚀 节点选择
+- DOMAIN-SUFFIX,openclaw.ai,🚀 节点选择
