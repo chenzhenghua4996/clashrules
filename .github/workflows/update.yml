@@ -7,6 +7,8 @@ on:
   push:
     paths:
       - 'custom-rules.yaml'
+      - 'merge.py'
+      - 'base.yaml'
 
 jobs:
   build:
@@ -27,10 +29,9 @@ jobs:
           OUTPUT_NAME: ${{ secrets.OUTPUT_NAME }}
         run: python merge.py
       
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/
-          git diff --staged --quiet || git commit -m "auto: update config $(date +%Y-%m-%d)"
-          git push
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
