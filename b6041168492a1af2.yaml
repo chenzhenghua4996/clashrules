@@ -131,6 +131,9 @@ rules:
 - DOMAIN-SUFFIX,tongyi.aliyun.com,DIRECT
 - DOMAIN-SUFFIX,deepseek.com,DIRECT
 - DOMAIN-SUFFIX,tdx.com.cn,DIRECT
+- DOMAIN-SUFFIX,yahoo.com,🚀 节点选择
+- DOMAIN-SUFFIX,yahoo.co.jp,🚀 节点选择
+- DOMAIN-SUFFIX,yahoofinance.com,🚀 节点选择
 - DOMAIN-SUFFIX,sse.com.cn,DIRECT
 - DOMAIN-SUFFIX,szse.cn,DIRECT
 - DOMAIN-SUFFIX,cninfo.com.cn,DIRECT
