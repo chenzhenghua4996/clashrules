@@ -55,6 +55,11 @@ rules:
   # === 通达信 直连 ===
   - DOMAIN-SUFFIX,tdx.com.cn,DIRECT
 
+  # Yahoo Finance 走代理（直连被限流）
+  - DOMAIN-SUFFIX,yahoo.com,PROXY
+  - DOMAIN-SUFFIX,yahoo.co.jp,PROXY
+  - DOMAIN-SUFFIX,yahoofinance.com,PROXY
+
   # === 交易所/监管 直连 ===
   - DOMAIN-SUFFIX,sse.com.cn,DIRECT
   - DOMAIN-SUFFIX,szse.cn,DIRECT
