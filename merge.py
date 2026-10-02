@@ -9,7 +9,10 @@ import os
 import copy
 import requests
 
-SUBSCRIPTION_URL = 'https://www.gitlabip.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/2/config.yaml'
+SUBSCRIPTION_URLS = [
+    'https://gitlab.com/free9999/ipupdate/-/raw/master/backup/img/1/2/ipp/clash.meta2/2/config.yaml',
+    'https://www.67867867.xyz/Alvin9999/PAC/refs/heads/master/backup/img/1/2/ipp/clash.meta2/2/config.yaml',
+]
 RULES_FILE = 'custom-rules.yaml'
 OUTPUT_FILE = os.path.join('docs', os.environ.get('OUTPUT_NAME', 'index.html'))
 # 如果远程拉取失败，使用本地 base.yaml 兜底
@@ -49,12 +52,16 @@ def merge_config(base, custom_rules):
 def main():
     print("=== Clash 订阅合并 ===")
     
-    # 尝试远程拉取，失败用本地兜底
-    try:
-        base = fetch_subscription(SUBSCRIPTION_URL)
-        print(f"  远程订阅成功")
-    except Exception as e:
-        print(f"  远程拉取失败: {e}")
+    # 依次尝试多个订阅源，全部失败用本地兜底
+    base = None
+    for url in SUBSCRIPTION_URLS:
+        try:
+            base = fetch_subscription(url)
+            print(f"  远程订阅成功: {url}")
+            break
+        except Exception as e:
+            print(f"  拉取失败: {url} -> {e}")
+    if base is None:
         print(f"  使用本地兜底: {LOCAL_BASE}")
         base = load_yaml(LOCAL_BASE)
     
